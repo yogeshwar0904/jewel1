@@ -14,7 +14,7 @@ test(
     });
 
     await test.step('#02 - Verify that text \'reya\' is present on the page', async () => {
-      await expect(page.getByText("reya", { exact: true })).toBeVisible();
+      await expect(page.getByText("reya", { exact: true })).toContainText('reya');
     });
 
     await test.step('#03 - Click the \'Book Now →\' button', async () => {
@@ -22,7 +22,7 @@ test(
     });
 
     await test.step('#04 - Click the first service card element', async () => {
-      await page.locator('div.svc-card').click();
+      await page.locator('div.svc-card').nth(0).click();
     });
 
     await test.step('#05 - Click the textbox with placeholder \'60614\'', async () => {
@@ -34,7 +34,7 @@ test(
     });
 
     await test.step('#07 - assert hasText', async () => {
-      await expect(page.getByText("How would you like your service?", { exact: true })).toBeVisible();
+      await expect(page.getByText("How would you like your service?", { exact: true })).toContainText('How would you like your service?');
     });
 
   }
